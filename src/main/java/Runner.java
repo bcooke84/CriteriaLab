@@ -27,7 +27,10 @@ public class Runner {
         Child foundChild = DBChild.findByName("Kurt");
         List<Child> sortedChildren = DBChild.sortChildren();
         List<Child> rangeList = DBChild.rangeList("Soprano");
-
+        friedrich.setAge(15);
+        friedrich.setRange("Bass");
+        DBChild.update(friedrich);
+        List<Child> children2 = DBChild.getAll();
     }
 
 

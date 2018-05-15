@@ -79,6 +79,19 @@ public class DBChild {
         return rangeList;
     }
 
+    public static void update(Child child){
+        session = HibernateUtil.getSessionFactory().openSession();
+        try{ transaction = session.beginTransaction();
+        session.update(child);
+        transaction.commit();
+        } catch(HibernateException e){
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
 
 }
 

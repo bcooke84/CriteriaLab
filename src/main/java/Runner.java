@@ -31,6 +31,8 @@ public class Runner {
         friedrich.setRange("Bass");
         DBChild.update(friedrich);
         List<Child> children2 = DBChild.getAll();
+        List<Child> children3 = DBChild.childrenUnderAge(10);
+
     }
 
 

@@ -92,6 +92,20 @@ public class DBChild {
         }
     }
 
+    public static List<Child> childrenUnderAge(int age) {
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Child> underAge = null;
+        try { Criteria cr = session.createCriteria(Child.class);
+            cr.add(Restrictions.lt("age", age));
+            underAge = cr.list();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return underAge;
+    }
+
 
 }
 
